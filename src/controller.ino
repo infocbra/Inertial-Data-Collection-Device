@@ -81,7 +81,8 @@ void loop(){
     
   if (initiate){ 
     if(Serial.available()){
-     a = Serial.read();
+     int inByte = Serial.read();
+     a=(char)inByte;
      if(a=='f'){
        BTSerial.write("stop#");
        BTSerial.flush();//Descarrega o buffer
