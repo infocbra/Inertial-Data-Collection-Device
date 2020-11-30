@@ -54,3 +54,14 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 *   Remember, the project is free for you to use, manipulate, change and distribute. However, I am just asking you to mention us in any copy, modification as the root of your development.
 *   I would advice you to try out the hardware with an analysis of the result data.
 *   If you want an easier software for hardware control, check out the [CONTROL SOFTWARE](https://github.com/Wanghley/PIBIC-Strategies-Data-Visualization-Medicine)
+
+## Gallery
+General view of the projected PCB. For more images go to [images/](https://github.com/Wanghley/Inertial-Data-Collection-Device/tree/main/images) and if you still want to see more you can see 3D views on [view/](https://github.com/Wanghley/Inertial-Data-Collection-Device/tree/main/view)
+| ![3d](https://raw.githubusercontent.com/Wanghley/Inertial-Data-Collection-Device/main/images/motion%20sense%20rev2%20assembled.png) | 
+| - | - |
+
+| ![3d](https://raw.githubusercontent.com/Wanghley/Inertial-Data-Collection-Device/main/images/board%20rev2%20-%20top.png) | ![3d](https://raw.githubusercontent.com/Wanghley/Inertial-Data-Collection-Device/main/images/board%20rev2%20-%20botton.png)| 
+| - | - |
+
+| ![3d](https://raw.githubusercontent.com/Wanghley/Inertial-Data-Collection-Device/main/images/diagram%20rev2.png) | 
+| - | - |
