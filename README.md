@@ -23,6 +23,18 @@ This project was tested in the diagnosis and prognosis of neuromotor diseases - 
 | [Wire](https://www.arduino.cc/en/reference/wire) | arduino lib | allow communication over I2C protocol |
 | [SoftwareSerial](https://www.arduino.cc/en/Reference/softwareSerial) | arduino lib | allow serial communication on other digital pins of the Arduino |
 
+## Bill of Materials
+| # | Designator | Qty | Description | Obs |
+| - | :--------- | --- | :---------- | :---------- | 
+| 1 | R1, R2 | 2 | Resistor 220R 5% (1/4W) | Used for digital protection of bluetooth module RX |
+| 2 | HC-05 | 1 | HC-05 Bluetooth Module | Module of Low supply consumption for prototype communication |
+| 3 | PUSH | 2 | Push Button Long Head | Push button for hardware control and operation  |
+| 4 | ON/OFF | 1 | 255sb sliding switch | Sliding switch to control energy supply of the prototype |
+| 5 | LED1 | 1 | COM-09590 | 2.25 V Red LED 5mm Cylindrical indicates the hardware is ready for collection |
+| 6 | LED2 | 1 | COM-09590 | 2.25 V green LED 5mm Cylindrical indicates the hardware operation mode and collection in process |
+| 6 | Arduino Nano | Arduino Nano | | mother board and controller |
+| 7 | KRE-2P | 1 | Borne Connector | Connector to the batery |
+| 8 | BATTERY CHARGER | 1 | TP4056 | Power supply adn voltage regulator to the batery |
 
 ## Authors
 *   **Wanghley Soares Martins** - *junior researcher* - [wanghley](https://github.com/wanghley)
