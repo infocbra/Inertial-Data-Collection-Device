@@ -1,0 +1,24 @@
+{
+    "Header": {
+        "Comment": "All values are metric (mm)",
+        "CreationDate": "2020-11-30T11:42:52Z",
+        "GenerationSoftware": {
+            "Application": "EAGLE",
+            "Vendor": "Autodesk",
+            "Version": "9.6.2"
+        },
+        "Part": "Single"
+    },
+    "Overall": {
+        "BoardThickness": 1.57,
+        "LayerNumber": 2,
+        "Name": {
+            "ProjectId": "MotionSense"
+        },
+        "Owner": "Wanghley Soares Martins <wanghleys@gmail.com>",
+        "Size": {
+            "X": 59.3854,
+            "Y": 59.182
+        }
+    }
+}
