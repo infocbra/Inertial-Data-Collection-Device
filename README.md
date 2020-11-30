@@ -1,6 +1,6 @@
 ![Inertial Data Collection Device](https://raw.githubusercontent.com/Wanghley/Inertial-Data-Collection-Device/main/images/cover.png)
 ![Developing](https://img.shields.io/badge/Development%20Status-in%20progress-lightgrey)
-[![version](https://img.shields.io/github/v/release/Wanghley/Inertial-Data-Collection-Device?sort=semver)](https://github.com/Wanghley/Inertial-Data-Collection-Device/releases)
+[![releases](https://img.shields.io/github/v/release/wanghley/Inertial-Data-Collection-Device?include_prereleases&sort=semver)](https://github.com/Wanghley/Inertial-Data-Collection-Device/releases)
 [![license](https://img.shields.io/github/license/Wanghley/Inertial-Data-Collection-Device)](https://github.com/RodrigoDornelles/pcb-snowman-xmas/blob/master/LICENSE.txt)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/8f7f95c491d14a2aa806aab2d97764f6)](https://www.codacy.com/gh/Wanghley/Inertial-Data-Collection-Device/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Wanghley/Inertial-Data-Collection-Device&amp;utm_campaign=Badge_Grade)
 
