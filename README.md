@@ -7,8 +7,8 @@
 Repository of the hardware developed to collect inertial data of subjects (i.e. Accelerometer, Giroscope) and temperature in order to provide an open source project for researchs related to the diagnosis and prognosis of neuromotor diseases - as Parkinson's. Part of the project of Scientific Research [**"Visualization Strategies to Online Big Data applied in individualized medicine"**](https://github.com/Wanghley/PIBIC-Strategies-Data-Visualization-Medicine) in the field of biomedice engineering with the aim of build a end-to-end system of collection,analysis and visualization of biomedical data related to neuromotors diseases as Parkinson Disease (PD) - the main studied disease in this project.
 
 ## Authors
-* **Wanghley Soares Martins** - *junior researcher* - [wanghley](https://github.com/wanghley)
-* **Fábio Henrique Monteiro Oliveira** - *research advisor* - [oliveirafhm](https://github.com/oliveirafhm)
+  * **Wanghley Soares Martins** - *junior researcher* - [wanghley](https://github.com/wanghley)
+  * **Fábio Henrique Monteiro Oliveira** - *research advisor* - [oliveirafhm](https://github.com/oliveirafhm)
 
 See also the list of [contributors](https://github.com/Wanghley/PIBIC-Strategies-Data-Visualization-Medicine/contributors) who participated in this project.
 
