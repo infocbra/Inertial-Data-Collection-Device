@@ -36,6 +36,11 @@ This project was tested in the diagnosis and prognosis of neuromotor diseases - 
 | 7 | KRE-2P | 1 | Borne Connector | Connector to the batery |
 | 8 | BATTERY CHARGER | 1 | TP4056 | Power supply adn voltage regulator to the batery |
 
+## Development
+In order to run and contribute to the PCB development you must have **Eagle**  installed in your computer and then use the .sch to work on the circuit itself and the .brd to work in the layout design.
+
+Now, for the development under de code of hardware control you must have Arduino IDE or similar to work on the .ino code.
+
 ## Authors
 *   **Wanghley Soares Martins** - *junior researcher* - [wanghley](https://github.com/wanghley)
 *   **Fábio Henrique Monteiro Oliveira** - *research advisor* - [oliveirafhm](https://github.com/oliveirafhm)
