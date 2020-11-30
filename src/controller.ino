@@ -101,20 +101,20 @@ void loop(){
     }
     int val = BTSerial.read();
     
-    char carac, carac1;
+    char c='-1', c1='-1';
     if (val != -1){
-        carac = val;
+        c = val;
     }
     
-    if (carac == 's'){
+    if (c == 's'){
       Serial.println("Comunication started!\nWaiting final handshake");
       BTSerial.write("ok#");
       BTSerial.flush(); //Limpar buffer
       while (controle){
         val = BTSerial.read();
         if (val != -1){
-          carac1 = val;
-          if(carac1=='c'){
+          c1 = val;
+          if(c1=='c'){
             controle = false;
             Serial.println("Data collection started!");
             visualization = true;
