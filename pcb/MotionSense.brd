@@ -52,7 +52,7 @@
 <layer number="42" name="bRestrict" color="1" fill="10" visible="yes" active="yes"/>
 <layer number="43" name="vRestrict" color="2" fill="10" visible="yes" active="yes"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
-<layer number="45" name="Holes" color="7" fill="1" visible="no" active="yes"/>
+<layer number="45" name="Holes" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
 <layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
 <layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
@@ -8484,7 +8484,7 @@ COLLECTION DEVICE</text>
 <text x="47.1297" y="18.8087" size="0.6096" layer="21" font="vector" ratio="15" distance="55" align="center">Developed by
 Wanghley Soares Martins (@wanghley)
 Prof. Fabio Henrique M. Oliveira (@oliveirafhm)</text>
-<text x="52.2859" y="21.3995" size="0.8128" layer="21" font="vector">V2.0</text>
+<text x="49.2379" y="21.22678125" size="0.8128" layer="21" font="vector" ratio="18">REV 2</text>
 <text x="53.9369" y="66.5734" size="1.6764" layer="1" font="vector" ratio="17" distance="30" align="center">Arduino
 Nano</text>
 <rectangle x1="51.4223" y1="62.257940625" x2="52.5907" y2="62.263021875" layer="21"/>
@@ -11027,6 +11027,10 @@ Nano</text>
 <text x="51.424840625" y="62.23508125" size="0.010159375" layer="21" font="vector">/home/wanghley/Desktop/cnpq3.bmp</text>
 <dimension x1="81.955640625" y1="12.303759375" x2="22.606" y2="12.19708125" x3="52.288446875" y3="8.007221875" textsize="1.778" layer="1"/>
 <dimension x1="19.19731875" y1="15.026640625" x2="19.19731875" y2="74.3966" x3="16.84528125" y3="44.71161875" textsize="1.778" layer="1"/>
+<hole x="80.985359375" y="16.144240625" drill="0.8"/>
+<hole x="80.812640625" y="73.1774" drill="0.8"/>
+<hole x="23.79471875" y="73.20788125" drill="0.8"/>
+<hole x="24.0284" y="16.271240625" drill="0.8"/>
 </plain>
 <libraries>
 <library name="diy-modules">
