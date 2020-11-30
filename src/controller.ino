@@ -22,7 +22,7 @@ volatile bool visualization = false; // Variable is loaded into the "RAM memory"
 boolean controle = true, initiate = false; // Variable of flow control
 int ledstate = 0; // LED state indicator
 double AcX, AcY, AcZ, Tmp, GyX, GyY, GyZ; // Variables used to store data
-char a;
+char a, c='-1', c1='-1';
 unsigned long current;
 unsigned long last;
 volatile bool flag = false;
@@ -101,7 +101,8 @@ void loop(){
     }
     int val = BTSerial.read();
     
-    char c='-1', c1='-1';
+    c='-1';
+    c1='-1';
     if (val != -1){
         c = val;
     }
