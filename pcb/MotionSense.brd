@@ -11025,6 +11025,8 @@ Nano</text>
 <rectangle x1="51.4223" y1="63.8175" x2="52.2351" y2="63.82258125" layer="21"/>
 <rectangle x1="52.36718125" y1="63.8175" x2="56.62421875" y2="63.82258125" layer="21"/>
 <text x="51.424840625" y="62.23508125" size="0.010159375" layer="21" font="vector">/home/wanghley/Desktop/cnpq3.bmp</text>
+<dimension x1="81.955640625" y1="12.303759375" x2="22.606" y2="12.19708125" x3="52.288446875" y3="8.007221875" textsize="1.778" layer="1"/>
+<dimension x1="19.19731875" y1="15.026640625" x2="19.19731875" y2="74.3966" x3="16.84528125" y3="44.71161875" textsize="1.778" layer="1"/>
 </plain>
 <libraries>
 <library name="diy-modules">
