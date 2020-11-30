@@ -7,7 +7,7 @@
 >  printed circuit board and code for collecting inertial data to research purposes of movements.
 
 ## About
-Hardware developed to collect inertial data of subjects (i.e. Accelerometer, Giroscope) and temperature in order to provide an open source hardware for researchs related to the analysis of human movements for many purposes.<br>
+Hardware developed to collect inertial data of humans (i.e. Accelerometer, Giroscope) and temperature in order to provide an open source hardware for researchs related to the analysis of human movements for many purposes.<br>
 This project was tested in the diagnosis and prognosis of neuromotor diseases - Parkinson's disease mostly as part of the project of scientific research [**"Visualization Strategies to Online Big Data applied in individualized medicine"**](https://github.com/Wanghley/PIBIC-Strategies-Data-Visualization-Medicine).
 
 ## Requirements
