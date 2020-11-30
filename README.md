@@ -49,3 +49,8 @@ See also the list of [contributors](https://github.com/Wanghley/PIBIC-Strategies
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledge
+*    Remember, the project is free for you to use, manipulate, change and distribute. However, I am just asking you to mention us in any copy, modification as the root of your development.
+*    I would advice you to try out the hardware with an analysis of the result data.
+*    If you want an easier software for hardware control, check out the [CONTROL SOFTWARE](https://github.com/Wanghley/PIBIC-Strategies-Data-Visualization-Medicine)
