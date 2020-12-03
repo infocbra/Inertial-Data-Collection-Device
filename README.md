@@ -62,5 +62,4 @@ General view of the projected PCB. For more images go to [images/](https://githu
 | ![3d](https://raw.githubusercontent.com/Wanghley/Inertial-Data-Collection-Device/main/images/board%20rev2%20-%20top.png) | ![3d](https://raw.githubusercontent.com/Wanghley/Inertial-Data-Collection-Device/main/images/board%20rev2%20-%20botton.png)| 
 |-|-|
 
-
 ![3d](https://raw.githubusercontent.com/Wanghley/Inertial-Data-Collection-Device/main/images/diagram%20rev2.png) 
