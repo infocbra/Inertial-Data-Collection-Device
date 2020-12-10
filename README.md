@@ -57,12 +57,12 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 *   If you want an easier software for hardware control, check out the [CONTROL SOFTWARE](https://github.com/Wanghley/PIBIC-Strategies-Data-Visualization-Medicine)
 ### JOBS TODO
 - [x] Update manufacturing images
-- [ ] Update 3D assembled prototype
+- [x] Update 3D assembled prototype
 - [x] Update gerber file
 - [x] Update header
 - [ ] Update descripiting photo
 - [ ] Make use fluxogram
-- [ ] Update list of components
+- [x] Update list of components
 - [ ] Make list of buy components
 
 
