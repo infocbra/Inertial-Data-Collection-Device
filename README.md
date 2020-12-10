@@ -76,4 +76,4 @@ General view of the projected PCB. For more images go to [images/](https://githu
 |-|-|
 ![3d](https://raw.githubusercontent.com/Wanghley/Inertial-Data-Collection-Device/main/images/diagram%20rev2.png)
 
-<iframe height=\'420\' width=\'620\' frameborder=\'0\' src=\'https://render.githubusercontent.com/view/3d?url=https://raw.githubusercontent.com/Wanghley/Inertial-Data-Collection-Device/main/view/motion%20sense%20rev2%20SQ.stl\' title=\'motion sense rev2 SQ.stl\'><\/iframe>
+![3D](https://render.githubusercontent.com/view/solid?url=https://raw.githubusercontent.com/Wanghley/Inertial-Data-Collection-Device/main/view/motion%20sense%20rev2%20SQ.stl)
