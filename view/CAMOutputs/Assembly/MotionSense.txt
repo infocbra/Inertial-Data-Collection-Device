@@ -1,9 +1,11 @@
-Partlist exported from /home/wanghley/Workspace/GitHub/Inertial-Data-Collection-Device/pcb/MotionSense.sch at 11/30/20 8:42 AM
+Partlist exported from /home/wanghley/Workspace/GitHub/Inertial-Data-Collection-Device/pcb/MotionSense.sch at 1/4/21 10:24 PM
 
 Qty Value                    Device                   Package                  Parts                 Description                                       ANZAHL MODUL POPULARITY SPICEMODEL SPICEPREFIX STECKPSI0 STECKPSI1 STECKX0 STECKX1 STECKY0 STECKY1
 1                            255SB                    255SB                    ON/OFF                SLIDING SWITCH                                                 11                                                                                   
+3   120R                     R-EU_0204/7              0204/7                   R4, R6, R7            RESISTOR, European symbol                                      79                    R                                                              
 2   220R                     R0207/10                 0207/10                  R1, R2                RESISTOR, European symbol                                                 NONE       R                                                              
 2   330R                     R0207/10                 0207/10                  R3, R5                RESISTOR, European symbol                                                 NONE       R                                                              
+1   5MMRGBLED                5MMRGBLED                LED5MMRGB                RGB_LED                                                                                                                                                                   
 1   ARDUINO_NANO2            ARDUINO_NANO2            ARDUINO_NANO2            ARDUINO-NANO          Arduino Nano2                                     2      TRUE                                                        -76200  76200   177800  177800 
 1   BATTERY-CHARGER-LI-5V    BATTERY-CHARGER-LI-5V    BATTERY-CHARGER-LI-5V    U$1                   Lithium Battery 5V Charger                                                                                                                          
 2   DTS-6                    DTS-6                    DTS-6                    PUSH-FUNC, PUSH-START                                                                                                                                                     
