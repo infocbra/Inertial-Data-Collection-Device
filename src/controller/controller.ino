@@ -12,23 +12,31 @@ DATE: Nov 19, 2020
 #include <Wire.h>           // Control library of the I²C protocol, used by the MPU6050
 #include <SoftwareSerial.h> // Bluetooth control library
 
-#define BTN 12
-#define LED 7
+#define BTNMODE 9 //Button for mode selection
+#define BTNCOLLECTION 12 //Button for start collection
+#define POWERLED 7 //LED power indicator
+#define COLLECTLED 8 //LED collection happening indicator
+
+// LED for indication of operation mode: Standalone, MotionSense, simple 3-way-handshake
+#define OPERATIONLED_RED 5 //Standalone
+#define OPERATIONLED_BLUE 3 //Simple 3way handshake
+#define OPERATIONLED_GREEN 6 //MotionSense
 
 SoftwareSerial BTSerial(10, 11); // RX | TX
 
 const int MPU = 0x68; // MPU6050 address on the I²C bus (available in datasheet)
 volatile bool visualization = false; // Variable is loaded into the "RAM memory" of the microcontroller
-boolean controle = true, initiate = false; // Variable of flow control
+boolean controle = true; // Variable of flow control
+bool collectionStarted = false;
 int ledstate = 0; // LED state indicator
 double AcX, AcY, AcZ, Tmp, GyX, GyY, GyZ; // Variables used to store data
 char a, c='-1', c1='-1';
 unsigned long current;
 unsigned long last;
 volatile bool flag = false;
-bool flagCopy;
-volatile unsigned long interval = 0;
-unsigned long intervalCopy;
+bool authSendData;
+//volatile unsigned long interval = 0;
+//unsigned long intervalCopy;
 long Micros;
 
 void setup()
@@ -44,19 +52,37 @@ void setup()
     Wire.endTransmission(true);  // Disables communication
 
     Serial.begin(57600);
-    Serial.println("Open Parkinson's Diagnostic Device");
+    Serial.println("MotionSense - Open Parkinson's Diagnostic Device");
     BTSerial.begin(57600); // HC-05 default speed in AT command more
 
     // starts the sample rate by time (clock)
     Timer1.initialize(20000); // Adjusted for 50hz = 10⁶ / 50 = 20,000µs
     Timer1.attachInterrupt(changeFlag); // Indicates the function that will be called every 20,000ms
-    
-    pinMode(BTN,INPUT_PULLUP);
-    pinMode(LED,OUTPUT);
-    digitalWrite(LED,LOW);
+
+    //start LEDS default
+    pinMode(BTNCOLLECTION,INPUT_PULLUP);
+    pinMode(COLLECTLED,OUTPUT);
+    digitalWrite(COLLECTLED,LOW);
+    pinMode(POWERLED,OUTPUT);
+    digitalWrite(POWERLED,HIGH);
+
+    //RGB
+    pinMode(OPERATIONLED_RED,OUTPUT);
+    pinMode(OPERATIONLED_BLUE,OUTPUT);
+    pinMode(OPERATIONLED_GREEN,OUTPUT);
+
+    RGB_color(0,255,0);
 }
 
-//Função que imprime os dados lidos pelo MPU6050 a cada chamada da interrupção
+//Function that controls the RGB mode indicator LED
+void RGB_color(int red_light_value, int green_light_value, int blue_light_value)
+ {
+  analogWrite(OPERATIONLED_RED, red_light_value);
+  analogWrite(OPERATIONLED_GREEN, green_light_value);
+  analogWrite(OPERATIONLED_BLUE, blue_light_value);
+}
+
+//Function that get the micros of the devide and indicates the flag authorization to send data
 void changeFlag(){
   if (visualization){
     flag = true; // active data display
@@ -65,38 +91,52 @@ void changeFlag(){
 }
 
 void loop(){
-  if(digitalRead(BTN)==LOW){
-   if(initiate==true){
-     Serial.println("Finalizando...");
-     initiate = false;
+  if(digitalRead(BTNCOLLECTION)==LOW){
+   if(collectionStarted==true){ //Close the collection procedure by hardware interaction BTN
+     Serial.println("stopping...");
+     // TODO write the function to clean buffer and send everything that was collected
+     collectionStarted = false;
      BTSerial.write("stop#");
-     digitalWrite(LED,LOW);
+     digitalWrite(COLLECTLED,LOW);
+     Serial.println("STOPPED");
    }else{
-     Serial.println("initiatendo...");
-     initiate=true;
-     digitalWrite(LED,HIGH);
+     Serial.println("starting...");
+     // TODO write the function to clean buffer and start collection from beginning
+     collectionStarted=true;
+     digitalWrite(COLLECTLED,HIGH);
+     Serial.println("STARTED");
    }
    delay(350);
   }
     
-  if (initiate){ 
-    if(Serial.available()){
-     a = Serial.read();
+  if (collectionStarted){ 
+    if(BTSerial.available()){ //Close connection by software attempt - through BLE command f
+     a = (char)BTSerial.read(); //Wait for the
      if(a=='f'){
-       BTSerial.write("stop#");
-       BTSerial.flush();//Descarrega o buffer
-       Serial.println("Comunication Closed!");
-       visualization = false;
+      BTSerial.flush();//Descarrega o buffer
+      BTSerial.write("stop#");
+      Serial.println("Comunication Closed!");
+      visualization = false;
      }
     }
+    if (Serial.available()){//Close connection by hardware attempt
+      a = Serial.read();
+      if (a == 'f'){
+        BTSerial.write("stop#");
+        BTSerial.flush(); //Descarrega o buffer
+        Serial.println("Canal fechado..");
+        visualization = false;
+      }
+    }
 
-    noInterrupts();// 
-    flagCopy = flag;
-    flag = false;
-    intervalCopy = interval;
-    interval = 0;
-    interrupts();
-    if (flagCopy){
+    noInterrupts();// From here interruptions are not allowed
+    authSendData = flag; // authorization for send data - change at each time interruption time - default 50Hz
+    flag = false; // set the flag back to original state
+//    intervalCopy = interval;
+//    interval = 0;
+    interrupts(); // From here interruptions are allowed
+    
+    if (authSendData){
       printData();
     }
     int val = BTSerial.read();
@@ -130,18 +170,7 @@ void loop(){
         Wire.endTransmission(false); //initiate a comunicação estável novamente
         //Solicita dados do sensor
         Wire.requestFrom(MPU, 14, true);
-        getData();
-        // Keep reading from HC-05 and send to Arduino Serial Monitor
-    }
-
-    if (Serial.available()){
-      a = Serial.read();
-      if (a == 'f'){
-        BTSerial.write("stop#");
-        BTSerial.flush(); //Descarrega o buffer
-        Serial.println("Canal fechado..");
-        visualization = false;
-      }
+        getData(); // Keep reading from HC-05
     }
   }
 }
