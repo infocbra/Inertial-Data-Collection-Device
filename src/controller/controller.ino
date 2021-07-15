@@ -37,6 +37,7 @@ const int STANDALONE[3] = {255,0,0}; //1
 const int SERIALDATA[3] = {0,0,255}; //2
 const int MOTIONSENSE[3] = {0,255,0}; //0
 int operation = 0;
+int val = -1;
 
 void setup()
 {
@@ -120,6 +121,17 @@ void loop(){
      collectionStarted=true;
      digitalWrite(COLLECTLED,HIGH);
      Serial.println("STARTED");
+     switch(operation){
+      case 1:
+        Serial.println("> STANDALONE mode");
+        break;
+      case 2:
+        Serial.println("> SERIALDATA mode");
+        break;
+      default:
+        Serial.println("> MOTIONSENSE mode");
+        break;
+     }
    }
    delay(350); //manual delay adjustment when button is pressed
   }
@@ -142,14 +154,15 @@ void loop(){
   
   //SOFTWARE CLOSURES COMMANDS - BLE & SERIAL
   if (collectionStarted){ 
-    if(BTSerial.available()){ //Close connection by software attempt - through BLE command f
-     a = (char)BTSerial.read(); //Wait for the
-     if(a=='f'){
-      BTSerial.flush();//Descarrega o buffer
-      BTSerial.write("stop#");
-      stopProcedure();
-      Serial.println("FINISHED!\nReady for next...");
-     }
+    if(operation==0){
+      if(BTSerial.available()){ //Close connection by software attempt - through BLE command f
+       a = (char)BTSerial.read(); //Wait for the
+       if(a=='f'){
+        BTSerial.flush();//Descarrega o buffer
+        BTSerial.write("stop#");
+        stopProcedure();
+        Serial.println("FINISHED!\nReady for next...");
+       }
     }
     if (Serial.available()){//Close connection by software attempt - through Serial console by cable
       a = Serial.read();
@@ -160,8 +173,9 @@ void loop(){
         Serial.println("FINISHED!\nReady for next...");
         Serial.println("==================================================");
       }
-    }
-    //==========================================================================
+    }  
+  }
+  //==========================================================================
 
     noInterrupts();// From here interruptions are not allowed
     authSendData = flag; // authorization for send data - change at each time interruption time - default 50Hz
@@ -169,32 +183,51 @@ void loop(){
     interrupts(); // From here interruptions are allowed
     
     if (authSendData){ // control of data sending - based on the time interruption
-      sendData(); //send function called
+      switch(operation){
+      case 1:
+        sendDataBluetooth();
+        break;
+      case 2:
+        sendDataSerial();
+        break;
+      default:
+        sendDataBluetooth();
+        break;
+     }
     }
     //==========================================================================
 
     //THREE WAY HANDSHAKE
-    int val = BTSerial.read(); // Read data comming from the bluetooth
-    c='1'; // Variable 
-    if (val != -1){
-        c = val;
-    }
-    if (c == 's'){ //First 3-way call - command received
-      Serial.println("> Handshake started!\n>> Waiting final handshake");
-      BTSerial.write("ok#"); //2nd 3-way call - acknowledge sent
-      BTSerial.flush(); //clean buffer
-      while (!handshaked){
-        val = BTSerial.read();
+    if(!handshaked){
+      if(operation==0){
+        val = BTSerial.read(); // Read data comming from the bluetooth
+        c='1'; // Variable 
         if (val != -1){
-          c = val;
-          if(c=='c'){
-            handshaked = true;
-            Serial.println("HANDSHAKE SUCCESSED!");
-            Serial.println("==================================================");
-            allowSensorReading = true;
+            c = val;
+        }
+        if (c == 's'){ //First 3-way call - command received
+          Serial.println("> Handshake started!\n>> Waiting final handshake");
+          BTSerial.write("ok#"); //2nd 3-way call - acknowledge sent
+          BTSerial.flush(); //clean buffer
+          while (!handshaked){
+            val = BTSerial.read();
+            if (val != -1){
+              c = val;
+              if(c=='c'){
+                handshaked = true;
+                Serial.println("HANDSHAKE SUCCESSED!");
+                Serial.println("==================================================");
+                allowSensorReading = true;
+              }
+            }
           }
         }
-      }
+      }else{
+        handshaked=true;
+        allowSensorReading = true;
+        Serial.println("STARTED!");
+        Serial.println("==================================================");
+      }  
     }
     //==========================================================================
 
@@ -234,8 +267,13 @@ void getData(){
   GyZ = GyZ / 250.0;          //Conversão para º/seg
 }
 
-void sendData(){
+void sendDataBluetooth(){
   BTSerial.print((String)Micros+","+(String)AcX+","+(String)AcY+","+(String)AcZ+","+(String)GyX+","+(String)GyY+","+(String)GyZ+","+(String)Tmp+"#");
   BTSerial.flush();
+//  Serial.println((String)Micros+","+(String)AcX+","+(String)AcY+","+(String)AcZ+","+(String)GyX+","+(String)GyY+","+(String)GyZ+","+(String)Tmp+"#");
+}
+void sendDataSerial(){
+  Serial.println((String)Micros+","+(String)AcX+","+(String)AcY+","+(String)AcZ+","+(String)GyX+","+(String)GyY+","+(String)GyZ+","+(String)Tmp+"#");
+  Serial.flush();
 //  Serial.println((String)Micros+","+(String)AcX+","+(String)AcY+","+(String)AcZ+","+(String)GyX+","+(String)GyY+","+(String)GyZ+","+(String)Tmp+"#");
 }
