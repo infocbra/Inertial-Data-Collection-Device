@@ -8477,14 +8477,6 @@ Wanghley Soares Martins</text>
 <wire x1="109.22" y1="63.5" x2="109.22" y2="66.04" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$13" class="0">
-<segment>
-<pinref part="R5" gate="G$1" pin="2"/>
-<wire x1="109.22" y1="76.2" x2="109.22" y2="81.28" width="0.1524" layer="91"/>
-<wire x1="76.2" y1="81.28" x2="109.22" y2="81.28" width="0.1524" layer="91"/>
-<pinref part="ARDUINO-NANO" gate="MODUL" pin="D6"/>
-</segment>
-</net>
 <net name="N$12" class="0">
 <segment>
 <wire x1="76.2" y1="73.66" x2="104.14" y2="73.66" width="0.1524" layer="91"/>
@@ -8502,20 +8494,12 @@ Wanghley Soares Martins</text>
 <wire x1="111.76" y1="83.82" x2="76.2" y2="83.82" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$21" class="0">
-<segment>
-<pinref part="R6" gate="G$1" pin="1"/>
-<wire x1="119.38" y1="78.74" x2="116.84" y2="86.36" width="0.1524" layer="91"/>
-<pinref part="ARDUINO-NANO" gate="MODUL" pin="D4"/>
-<wire x1="116.84" y1="86.36" x2="76.2" y2="86.36" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="N$22" class="0">
 <segment>
 <pinref part="R7" gate="G$1" pin="1"/>
-<wire x1="124.46" y1="81.28" x2="119.38" y2="88.9" width="0.1524" layer="91"/>
+<wire x1="124.46" y1="81.28" x2="124.46" y2="88.9" width="0.1524" layer="91"/>
 <pinref part="ARDUINO-NANO" gate="MODUL" pin="D3"/>
-<wire x1="119.38" y1="88.9" x2="76.2" y2="88.9" width="0.1524" layer="91"/>
+<wire x1="124.46" y1="88.9" x2="76.2" y2="88.9" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$17" class="0">
@@ -8539,6 +8523,20 @@ Wanghley Soares Martins</text>
 <pinref part="R7" gate="G$1" pin="2"/>
 <pinref part="RGB_LED" gate="G$1" pin="BLUE"/>
 <wire x1="134.62" y1="81.28" x2="134.62" y2="71.12" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$13" class="0">
+<segment>
+<pinref part="R5" gate="G$1" pin="2"/>
+<pinref part="ARDUINO-NANO" gate="MODUL" pin="D8"/>
+<wire x1="109.22" y1="76.2" x2="76.2" y2="76.2" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$21" class="0">
+<segment>
+<pinref part="R6" gate="G$1" pin="1"/>
+<wire x1="119.38" y1="78.74" x2="116.84" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="116.84" y1="78.74" x2="116.84" y2="81.28" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
